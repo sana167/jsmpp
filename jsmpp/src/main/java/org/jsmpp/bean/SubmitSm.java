@@ -183,7 +183,7 @@ public class SubmitSm extends MessageRequest {
      * @deprecated see {@link MessageMode#containedIn(byte)}
      */
     @Deprecated
-    public static final boolean isDefaultMode(byte esmClass) {
+    public static boolean isDefaultMode(byte esmClass) {
         return isMessagingMode(esmClass, SMPPConstant.ESMCLS_DEFAULT_MODE);
     }
 
@@ -195,7 +195,7 @@ public class SubmitSm extends MessageRequest {
      * @deprecated use {@link MessageMode#compose(byte, MessageMode)}
      */
     @Deprecated
-    public static final byte composeDefaultMode(byte esmClass) {
+    public static byte composeDefaultMode(byte esmClass) {
         return composeMessagingMode(esmClass, SMPPConstant.ESMCLS_DEFAULT_MODE);
     }
 
@@ -205,7 +205,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the ESM class to examine
      * @return {@code true} if the Message Mode is the Datagram mode
      */
-    public static final boolean isDatagramMode(byte esmClass) {
+    public static boolean isDatagramMode(byte esmClass) {
         return isMessagingMode(esmClass, SMPPConstant.ESMCLS_DATAGRAM_MODE);
     }
 
@@ -215,7 +215,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the original ESM class
      * @return the modified ESM class
      */
-    public static final byte composeDatagramMode(byte esmClass) {
+    public static byte composeDatagramMode(byte esmClass) {
         return composeMessagingMode(esmClass, SMPPConstant.ESMCLS_DATAGRAM_MODE);
     }
 
@@ -225,7 +225,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the ESM class to examine
      * @return {@code true} if the Message Mode is the Forward (Transaction) mode
      */
-    public static final boolean isForwardMode(byte esmClass) {
+    public static boolean isForwardMode(byte esmClass) {
         return isMessagingMode(esmClass, SMPPConstant.ESMCLS_FORWARD_MODE);
     }
 
@@ -235,7 +235,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the original ESM class
      * @return the modified ESM class
      */
-    public static final byte composeForwardMode(byte esmClass) {
+    public static byte composeForwardMode(byte esmClass) {
         return composeMessagingMode(esmClass, SMPPConstant.ESMCLS_FORWARD_MODE);
     }
 
@@ -245,7 +245,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the ESM class to examine
      * @return {@code true} if the Message Mode is the Store and Forward mode
      */
-    public static final boolean isStoreAndForwardMode(byte esmClass) {
+    public static boolean isStoreAndForwardMode(byte esmClass) {
         return isMessagingMode(esmClass, SMPPConstant.ESMCLS_STORE_FORWARD);
     }
 
@@ -255,7 +255,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the original ESM class
      * @return the modified ESM class
      */
-    public static final byte composeStoreAndForwardMode(byte esmClass) {
+    public static byte composeStoreAndForwardMode(byte esmClass) {
         return composeMessagingMode(esmClass, SMPPConstant.ESMCLS_STORE_FORWARD);
     }
 
@@ -265,7 +265,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the ESM class to examine
      * @return {@code true} if the Message Type is Short Message contains Delivery Acknowledgement
      */
-    public static final boolean isEsmeDeliveryAcknowledgement(byte esmClass) {
+    public static boolean isEsmeDeliveryAcknowledgement(byte esmClass) {
         return isMessageType(esmClass, SMPPConstant.ESMCLS_ESME_DELIVERY_ACK);
     }
 
@@ -275,7 +275,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the original ESM class
      * @return the modified ESM class
      */
-    public static final byte composeEsmeDeliveryAcknowledgement(byte esmClass) {
+    public static byte composeEsmeDeliveryAcknowledgement(byte esmClass) {
         return composeMessageType(esmClass, SMPPConstant.ESMCLS_ESME_DELIVERY_ACK);
     }
 
@@ -285,7 +285,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the ESM class to examine
      * @return {@code true} if the Message Type is Short Message contains Manual/User Acknowledgement
      */
-    public static final boolean isEsmeManualAcknowledgement(byte esmClass) {
+    public static boolean isEsmeManualAcknowledgement(byte esmClass) {
         return isMessageType(esmClass, SMPPConstant.ESMCLS_ESME_MANUAL_ACK);
     }
 
@@ -295,7 +295,7 @@ public class SubmitSm extends MessageRequest {
      * @param esmClass the original ESM class
      * @return the modified ESM class
      */
-    public static final byte composeEsmeManualAcknowledgement(byte esmClass) {
+    public static byte composeEsmeManualAcknowledgement(byte esmClass) {
         return composeMessageType(esmClass, SMPPConstant.ESMCLS_ESME_MANUAL_ACK);
     }
 
@@ -305,7 +305,7 @@ public class SubmitSm extends MessageRequest {
      * @param registeredDelivery the Registered Delivery byte to examine
      * @return {@code true} if the Registered Delivery is No MC Delivery Receipt requested (default)
      */
-    public static final boolean isSmscDelNotRequested(byte registeredDelivery) {
+    public static boolean isSmscDelNotRequested(byte registeredDelivery) {
         return isSmscDeliveryReceipt(registeredDelivery, SMPPConstant.REGDEL_SMSC_NO);
     }
 
@@ -315,7 +315,7 @@ public class SubmitSm extends MessageRequest {
      * @param registeredDelivery the original Registered Delivery byte
      * @return the modified Registered Delivery
      */
-    public static final byte composeSmscDelReceiptNotRequested(byte registeredDelivery) {
+    public static byte composeSmscDelReceiptNotRequested(byte registeredDelivery) {
         return composeSmscDelReceipt(registeredDelivery, SMPPConstant.REGDEL_SMSC_NO);
     }
 
@@ -325,7 +325,7 @@ public class SubmitSm extends MessageRequest {
      * @param registeredDelivery the Registered Delivery byte to examine
      * @return {@code true} if the Registered Delivery is MC Delivery Receipt requested where final delivery outcome is delivery success or failure
      */
-    public static final boolean isSmscDelReceiptSuccessAndFailureRequested(byte registeredDelivery) {
+    public static boolean isSmscDelReceiptSuccessAndFailureRequested(byte registeredDelivery) {
         return isSmscDeliveryReceipt(registeredDelivery, SMPPConstant.REGDEL_SMSC_SUCCESS_FAILURE_REQUESTED);
     }
 
@@ -335,7 +335,7 @@ public class SubmitSm extends MessageRequest {
      * @param registeredDelivery the original Registered Delivery byte
      * @return the modified Registered Delivery
      */
-    public static final byte composeSmscDelReceiptSuccessAndFailureRequested(byte registeredDelivery) {
+    public static byte composeSmscDelReceiptSuccessAndFailureRequested(byte registeredDelivery) {
         return composeSmscDelReceipt(registeredDelivery, SMPPConstant.REGDEL_SMSC_SUCCESS_FAILURE_REQUESTED);
     }
 
@@ -345,7 +345,7 @@ public class SubmitSm extends MessageRequest {
      * @param registeredDelivery the Registered Delivery byte
      * @return {@code true} if the MC Delivery Receipt requested where the final delivery outcome is delivery failure
      */
-    public static final boolean isSmscDelReceiptFailureRequested(byte registeredDelivery) {
+    public static boolean isSmscDelReceiptFailureRequested(byte registeredDelivery) {
         return isSmscDeliveryReceipt(registeredDelivery, SMPPConstant.REGDEL_SMSC_FAILURE_REQUESTED);
     }
 
@@ -355,7 +355,7 @@ public class SubmitSm extends MessageRequest {
      * @param registeredDelivery the original Registered Delivery byte
      * @return the modified Registered Delivery
      */
-    public static final byte composeSmscDelReceiptFailureRequested(byte registeredDelivery) {
+    public static byte composeSmscDelReceiptFailureRequested(byte registeredDelivery) {
         return composeSmscDelReceipt(registeredDelivery, SMPPConstant.REGDEL_SMSC_FAILURE_REQUESTED);
     }
 }

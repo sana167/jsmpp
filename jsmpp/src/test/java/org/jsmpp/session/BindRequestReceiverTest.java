@@ -14,15 +14,15 @@
  */
 package org.jsmpp.session;
 
-import static org.testng.Assert.fail;
-
-import java.util.concurrent.TimeoutException;
-
 import org.jsmpp.bean.Bind;
 import org.jsmpp.bean.BindType;
 import org.jsmpp.bean.InterfaceVersion;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeoutException;
+
+import static org.testng.Assert.fail;
 
 /**
  * @author uudashr
@@ -110,7 +110,7 @@ public class BindRequestReceiverTest {
         }
     }
     
-    private static final Bind dummyBind() {
+    private static Bind dummyBind() {
         Bind bind = new Bind();
         bind.setCommandId(BindType.BIND_RX.commandId());
         bind.setInterfaceVersion(InterfaceVersion.IF_34.value());

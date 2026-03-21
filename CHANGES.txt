@@ -1,5 +1,9 @@
 Changes:
 
+3.0.2
+- add "ESME_RCNTSUBDL" into SMPP error codes table
+- Update several Maven dependencies.
+
 3.0.1
 - use ReadWriteLock instead of synchronized on class level.
 - Don't try to close the session from enquireLinkSender too.

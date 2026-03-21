@@ -71,7 +71,7 @@ public class AbsoluteTimeFormatter implements TimeFormatter {
         return format(cal);
     }
     
-    public static final String format(Integer year, Integer month,
+    public static String format(Integer year, Integer month,
             Integer day, Integer hour, Integer minute, Integer second,
             int tenthsOfSecond, int timeDiff, Character sign) {
         Object[] args = new Object[] {year, month, day, hour, minute, second, tenthsOfSecond, timeDiff, sign};

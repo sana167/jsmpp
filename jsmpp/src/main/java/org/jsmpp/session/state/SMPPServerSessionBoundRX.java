@@ -14,8 +14,6 @@
  */
 package org.jsmpp.session.state;
 
-import java.io.IOException;
-
 import org.jsmpp.SMPPConstant;
 import org.jsmpp.bean.Command;
 import org.jsmpp.bean.DeliverSmResp;
@@ -24,6 +22,8 @@ import org.jsmpp.extra.SessionState;
 import org.jsmpp.session.ServerResponseHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 /**
  * @author uudashr
@@ -85,8 +85,8 @@ class SMPPServerSessionBoundRX extends SMPPServerSessionBound implements
                         .getSequenceNumber());
     }
     
-    static final void processDeliverSmResp0(Command pduHeader, byte[] pdu,
-            ServerResponseHandler responseHandler) throws IOException {
+    static void processDeliverSmResp0(Command pduHeader, byte[] pdu,
+                                      ServerResponseHandler responseHandler) throws IOException {
         PendingResponse<Command> pendingResp = responseHandler.removeSentItem(pduHeader.getSequenceNumber());
         if (pendingResp != null) {
             DeliverSmResp resp = pduDecomposer.deliverSmResp(pdu);

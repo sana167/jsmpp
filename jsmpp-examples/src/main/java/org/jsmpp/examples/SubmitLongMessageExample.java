@@ -14,6 +14,7 @@
 package org.jsmpp.examples;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Random;
 
@@ -61,6 +62,7 @@ public class SubmitLongMessageExample {
                 OptionalParameter sarSegmentSeqnum = OptionalParameters.newSarSegmentSeqnum(seqNum);
                 String messageId = submitMessage(session, message, sarMsgRefNum, sarSegmentSeqnum, sarTotalSegments);
                 log.info("Message submitted, message_id is {}", messageId);
+              OptionalParameter messagePayload = new OptionalParameter.Message_payload("Long Message".getBytes(StandardCharsets.ISO_8859_1));
             }
 
             session.unbind();

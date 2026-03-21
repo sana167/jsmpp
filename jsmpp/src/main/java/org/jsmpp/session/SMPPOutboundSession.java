@@ -408,22 +408,22 @@ public class SMPPOutboundSession extends AbstractSession implements OutboundClie
       workQueue = new LinkedBlockingQueue<>(queueCapacity);
       pduExecutor = new ThreadPoolExecutor(pduProcessorDegree, pduProcessorDegree,
           0L, TimeUnit.MILLISECONDS, workQueue, (runnable, executor) -> {
-            log.info("Receiving queue is full, please increasing receive queue capacity, and/or let other side obey the window size");
-            Command pduHeader = ((PDUProcessTask) runnable).getPduHeader();
-            if ((pduHeader.getCommandId() & SMPPConstant.MASK_CID_RESP) == SMPPConstant.MASK_CID_RESP) {
-              try {
-                boolean success = executor.getQueue().offer(runnable, 60000, TimeUnit.MILLISECONDS);
-                if (!success) {
-                  log.warn("Offer to receive queue failed for {}", pduHeader);
-                }
-              } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                throw new RuntimeException(e);
-              }
-            } else {
-              throw new QueueMaxException("Receiving queue capacity " + queueCapacity + " exceeded");
+        log.info("Receiving queue is full, please increasing receive queue capacity, and/or let other side obey the window size");
+        Command pduHeader = ((PDUProcessTask) runnable).getPduHeader();
+        if ((pduHeader.getCommandId() & SMPPConstant.MASK_CID_RESP) == SMPPConstant.MASK_CID_RESP) {
+          try {
+            boolean success = executor.getQueue().offer(runnable, 60000, TimeUnit.MILLISECONDS);
+            if (!success) {
+              log.warn("Offer to receive queue failed for {}", pduHeader);
             }
-          });
+          } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException(e);
+          }
+        } else {
+          throw new QueueMaxException("Receiving queue capacity " + queueCapacity + " exceeded");
+        }
+      });
     }
 
     @Override

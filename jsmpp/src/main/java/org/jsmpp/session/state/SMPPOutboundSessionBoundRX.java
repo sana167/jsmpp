@@ -14,8 +14,6 @@
  */
 package org.jsmpp.session.state;
 
-import java.io.IOException;
-
 import org.jsmpp.bean.Command;
 import org.jsmpp.bean.DeliverSmResp;
 import org.jsmpp.extra.PendingResponse;
@@ -25,6 +23,8 @@ import org.jsmpp.util.DefaultDecomposer;
 import org.jsmpp.util.PDUDecomposer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 /**
  * This class is bound_rx state implementation of {@link SMPPOutboundSessionState}.
@@ -48,8 +48,8 @@ class SMPPOutboundSessionBoundRX extends SMPPOutboundSessionBound implements SMP
         processDeliverSmResp0(pduHeader, pdu, responseHandler);
     }
 
-    static final void processDeliverSmResp0(Command pduHeader, byte[] pdu,
-                                            OutboundResponseHandler responseHandler) throws IOException {
+    static void processDeliverSmResp0(Command pduHeader, byte[] pdu,
+                                      OutboundResponseHandler responseHandler) throws IOException {
         PendingResponse<Command> pendingResp = responseHandler.removeSentItem(pduHeader.getSequenceNumber());
         if (pendingResp != null) {
             DeliverSmResp resp = pduDecomposer.deliverSmResp(pdu);

@@ -14,11 +14,11 @@
  */
 package org.jsmpp.bean;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 import org.jsmpp.SMPPConstant;
 import org.jsmpp.bean.OptionalParameter.Tag;
+
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * @author uudashr
@@ -320,7 +320,7 @@ public class AbstractSmCommand extends Command {
     /*
      * Messaging Mode.
      */
-    protected final static boolean isMessagingMode(byte esmClass,
+    protected static boolean isMessagingMode(byte esmClass,
             byte messagingModeValue) {
         // 00000011 = 0x03
         return (esmClass & 0x03) == messagingModeValue;
@@ -334,7 +334,7 @@ public class AbstractSmCommand extends Command {
      * @param messagingModeValue the messaging mode bits to set
      * @return the encoded messaging mode at ESM class
      */
-    protected final static byte composeMessagingMode(byte esmClass,
+    protected static byte composeMessagingMode(byte esmClass,
             byte messagingModeValue) {
         return (byte)(cleanMessagingMode(esmClass) | messagingModeValue);
     }
@@ -345,7 +345,7 @@ public class AbstractSmCommand extends Command {
      * @param esmClass the original ESM class
      * @return the ESM class without the Messaging Mode bits
      */
-    protected final static byte cleanMessagingMode(byte esmClass) {
+    protected static byte cleanMessagingMode(byte esmClass) {
         /*
          * 00000011 = 0x03
          *
@@ -357,7 +357,7 @@ public class AbstractSmCommand extends Command {
     /*
      * Message Type.
      */
-    protected final static boolean isMessageType(byte esmClass,
+    protected static boolean isMessageType(byte esmClass,
             byte messageTypeValue) {
         // 00111100 = 0x3c
         return (esmClass & 0x3c) == messageTypeValue;
@@ -370,7 +370,7 @@ public class AbstractSmCommand extends Command {
      * @param messageTypeValue the message type to be set in the ESM class
      * @return the modified ESM class as {@code byte}
      */
-    protected final static byte composeMessageType(byte esmClass,
+    protected static byte composeMessageType(byte esmClass,
             byte messageTypeValue) {
         return (byte)(cleanMessageType(esmClass) | messageTypeValue);
     }
@@ -381,7 +381,7 @@ public class AbstractSmCommand extends Command {
      * @param esmClass the original ESM class
      * @return the modified ESM class as {@code byte}
      */
-    protected final static byte cleanMessageType(byte esmClass) {
+    protected static byte cleanMessageType(byte esmClass) {
         /*
          * 11000011 = 0xc3
          *
@@ -393,8 +393,8 @@ public class AbstractSmCommand extends Command {
     /*
      * Specific Features.
      */
-    protected final static boolean isSpecificFeatures(byte esmClass,
-            byte specificFeaturesValue) {
+    protected static boolean isSpecificFeatures(byte esmClass,
+                                                byte specificFeaturesValue) {
         // 01000000 = 0xC0
         return (esmClass & 0xC0) == specificFeaturesValue;
     }
@@ -406,8 +406,8 @@ public class AbstractSmCommand extends Command {
      * @param specificFeaturesValue the specific features to set
      * @return the modified ESM class as {@code byte}
      */
-    protected final static byte composeSpecificFeatures(byte esmClass,
-            byte specificFeaturesValue) {
+    protected static byte composeSpecificFeatures(byte esmClass,
+                                                  byte specificFeaturesValue) {
         return (byte)(cleanSpecificFeatures(esmClass) | specificFeaturesValue);
     }
 
@@ -417,7 +417,7 @@ public class AbstractSmCommand extends Command {
      * @param esmClass the original ESM class
      * @return the modified ESM class as {@code byte}
      */
-    protected final static byte cleanSpecificFeatures(byte esmClass) {
+    protected static byte cleanSpecificFeatures(byte esmClass) {
         /*
          * 00111111 = 0x3f
          *
@@ -433,18 +433,18 @@ public class AbstractSmCommand extends Command {
      * @param smscDeliveryReceiptValue the SMSC Delivery Receipt to check for
      * @return {@code true} if the registered delivery has the SMSC Delivery Receipt value set
      */
-    protected static final boolean isSmscDeliveryReceipt(
+    protected static boolean isSmscDeliveryReceipt(
             byte registeredDelivery, byte smscDeliveryReceiptValue) {
         // xxxxxx11 = 0x03 mask bits 1 - 0
         return (registeredDelivery & 0x03) == smscDeliveryReceiptValue;
     }
 
-    protected static final byte composeSmscDelReceipt(byte registeredDelivery,
-            byte smscDeliveryReceiptValue) {
+    protected static byte composeSmscDelReceipt(byte registeredDelivery,
+                                                byte smscDeliveryReceiptValue) {
         return (byte)(cleanSmscDeliveryReceipt(registeredDelivery) | smscDeliveryReceiptValue);
     }
 
-    protected static final byte cleanSmscDeliveryReceipt(byte registeredDelivery) {
+    protected static byte cleanSmscDeliveryReceipt(byte registeredDelivery) {
         // 11111100 = 0x0fc
         return (byte)(registeredDelivery & 0x0fc);
     }
@@ -456,18 +456,18 @@ public class AbstractSmCommand extends Command {
      * @param smeOriginatedAckValue the SME Originated Ack to check for
      * @return {@code true} if the registered delivery has the SME Originated Ack value set
      */
-    protected static final boolean isSmeAck(byte registeredDelivery,
-            byte smeOriginatedAckValue) {
+    protected static boolean isSmeAck(byte registeredDelivery,
+                                      byte smeOriginatedAckValue) {
         // xxxx11xx = 0x0c mask bits 3 - 2
         return (registeredDelivery & 0x0c) == smeOriginatedAckValue;
     }
 
-    protected static final byte composeSmeAck(byte registeredDelivery,
-            byte smeOriginatedValue) {
+    protected static byte composeSmeAck(byte registeredDelivery,
+                                        byte smeOriginatedValue) {
         return (byte)(cleanSmeAck(registeredDelivery) | smeOriginatedValue);
     }
 
-    protected static final byte cleanSmeAck(byte registeredDelivery) {
+    protected static byte cleanSmeAck(byte registeredDelivery) {
         // 11110011 = 0xf3
         // (registeredDelivery & 0x0c) will clean the bits 3 - 2.
         return (byte)(registeredDelivery & 0x0c);

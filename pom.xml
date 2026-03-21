@@ -4,7 +4,7 @@
 
     <groupId>org.jsmpp</groupId>
     <artifactId>jsmpp-pom</artifactId>
-    <version>3.0.1</version>
+    <version>3.0.2</version>
     <packaging>pom</packaging>
 
     <name>jSMPP - Parent</name>
@@ -52,14 +52,14 @@
         <junit.version>4.13.2</junit.version>
         <testng.version>7.5.1</testng.version>
         <telecom-charsets.version>1.0.1</telecom-charsets.version>
-        <commons-codec.version>1.17.0</commons-codec.version>
+        <commons-codec.version>1.21.0</commons-codec.version>
         <git.properties>git.properties</git.properties>
 
         <maven-bundle-plugin.version>5.1.9</maven-bundle-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-        <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
-        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
-        <maven-release-plugin.version>3.0.1</maven-release-plugin.version>
+        <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
+        <maven-jar-plugin.version>3.5.0</maven-jar-plugin.version>
+        <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <maven-wagon.version>3.5.3</maven-wagon.version>

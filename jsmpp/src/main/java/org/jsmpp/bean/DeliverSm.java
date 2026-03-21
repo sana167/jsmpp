@@ -199,7 +199,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the ESM class to examine
 	 * @return {@code true} if esmClass Message Type indicates an MC delivery receipt
 	 */
-	public static final boolean isSmscDeliveryReceipt(byte esmClass) {
+	public static boolean isSmscDeliveryReceipt(byte esmClass) {
 		return isMessageType(esmClass, SMPPConstant.ESMCLS_SMSC_DELIV_RECEIPT);
 	}
 	
@@ -209,7 +209,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the original ESM class
 	 * @return the modified ESM class
 	 */
-	public static final byte composeSmscDeliveryReceipt(byte esmClass) {
+	public static byte composeSmscDeliveryReceipt(byte esmClass) {
 		return composeMessageType(esmClass, SMPPConstant.ESMCLS_SMSC_DELIV_RECEIPT);
 	}
 	
@@ -219,7 +219,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the original ESM class
 	 * @return {@code true} if esmClass Message Type indicates an SME Delivery Acknowledgment.
 	 */
-	public static final boolean isSmeDeliveryAcknowledgment(byte esmClass) {
+	public static boolean isSmeDeliveryAcknowledgment(byte esmClass) {
 		return isMessageType(esmClass, SMPPConstant.ESMCLS_SME_DELIV_ACK);
 	}
 	
@@ -229,7 +229,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the original ESM class
 	 * @return the modified ESM class
 	 */
-	public static final byte composeSmeDeliveryAcknowledgment(byte esmClass) {
+	public static byte composeSmeDeliveryAcknowledgment(byte esmClass) {
 		return composeMessageType(esmClass, SMPPConstant.ESMCLS_SME_DELIV_ACK);
 	}
 	
@@ -239,7 +239,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the ESM class to examine
 	 * @return {@code true} if the ESM class Message Type bits indicates a SME Manual/User Acknowledgement
 	 */
-	public static final boolean isSmeManualAcknowledgment(byte esmClass) {
+	public static boolean isSmeManualAcknowledgment(byte esmClass) {
 		return isMessageType(esmClass, SMPPConstant.ESMCLS_SME_MANUAL_ACK);
 	}
 	
@@ -249,7 +249,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the original ESM class
 	 * @return the modified ESM class
 	 */
-	public static final byte composeSmeManualAcknowledgment(byte esmClass) {
+	public static byte composeSmeManualAcknowledgment(byte esmClass) {
 		return composeMessageType(esmClass, SMPPConstant.ESMCLS_SME_MANUAL_ACK);
 	}
 	
@@ -259,7 +259,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the ESM class to examine
 	 * @return {@code true} if the ESM class ANSI-41 Specific bits indicates a conversion abort
 	 */
-	public static final boolean isConversationAbort(byte esmClass) {
+	public static boolean isConversationAbort(byte esmClass) {
 		return isMessageType(esmClass, SMPPConstant.ESMCLS_CONV_ABORT);
 	}
 	
@@ -269,7 +269,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the original ESM class
 	 * @return the modified ESM class
 	 */
-	public static final byte composeConversationAbort(byte esmClass) {
+	public static byte composeConversationAbort(byte esmClass) {
 		return composeMessageType(esmClass, SMPPConstant.ESMCLS_CONV_ABORT);
 	}
 	
@@ -279,7 +279,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the original ESM class
 	 * @return {@code true} if the ESM class Message Type indicates an intermediate delivery notification
 	 */
-	public static final boolean isIntermediateDeliveryNotification(byte esmClass) {
+	public static boolean isIntermediateDeliveryNotification(byte esmClass) {
 		return isMessageType(esmClass, SMPPConstant.ESMCLS_INTRMD_DELIV_NOTIF);
 	}
 	
@@ -289,7 +289,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param esmClass the original ESM class
 	 * @return the modified ESM class
 	 */
-	public static final byte composeIntermediateDeliveryNotification(byte esmClass) {
+	public static byte composeIntermediateDeliveryNotification(byte esmClass) {
 		return composeMessageType(esmClass, SMPPConstant.ESMCLS_INTRMD_DELIV_NOTIF);
 	}
 
@@ -299,7 +299,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param registeredDelivery The registered delivery parameter
 	 * @return {@code true} if the Registered Delivery SME originated Acknowledgement bits indicates SME Manual/User Acknowledgment requested
 	 */
-	public static final boolean isSmeAckNotRequested(byte registeredDelivery) {
+	public static boolean isSmeAckNotRequested(byte registeredDelivery) {
 		return isSmeAck(registeredDelivery, SMPPConstant.REGDEL_SME_ACK_NO);
 	}
 
@@ -309,7 +309,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param registeredDelivery the original Registered Delivery
 	 * @return the modified Registered Delivery
 	 */
-	public static final byte composeSmeAckNotRequested(byte registeredDelivery) {
+	public static byte composeSmeAckNotRequested(byte registeredDelivery) {
 		return composeSmeAck(registeredDelivery, SMPPConstant.REGDEL_SME_ACK_NO);
 	}
 	
@@ -319,7 +319,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param registeredDelivery the original Registered Delivery
 	 * @return {@code true} if the Registered Delivery SME originated Acknowledgement bits indicates SME Delivery Acknowledgement requested
 	 */
-	public static final boolean isSmeDeliveryAckRequested(byte registeredDelivery) {
+	public static boolean isSmeDeliveryAckRequested(byte registeredDelivery) {
 		return isSmeAck(registeredDelivery, SMPPConstant.REGDEL_SME_DELIVERY_ACK_REQUESTED);
 	}
 	
@@ -329,7 +329,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param registeredDelivery the original Registered Delivery
 	 * @return the modified Registered Delivery
 	 */
-	public static final byte composeSmeDeliveryAckRequested(byte registeredDelivery) {
+	public static byte composeSmeDeliveryAckRequested(byte registeredDelivery) {
 		return composeSmeAck(registeredDelivery, SMPPConstant.REGDEL_SME_DELIVERY_ACK_REQUESTED);
 	}
 	
@@ -339,7 +339,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param registeredDelivery the original Registered Delivery
 	 * @return {@code true} if the Registered Delivery SME originated Acknowledgement bits indicates SME Manual/User Acknowledgment requested
 	 */
-	public static final boolean isSmeManualAckRequested(byte registeredDelivery) {
+	public static boolean isSmeManualAckRequested(byte registeredDelivery) {
 		return isSmeAck(registeredDelivery, SMPPConstant.REGDEL_SME_MANUAL_ACK_REQUESTED);
 	}
 	
@@ -349,7 +349,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param registeredDelivery the original Registered Delivery
 	 * @return the modified Registered Delivery
 	 */
-	public static final byte composeSmeManualAckRequested(byte registeredDelivery) {
+	public static byte composeSmeManualAckRequested(byte registeredDelivery) {
 		return composeSmeAck(registeredDelivery, SMPPConstant.REGDEL_SME_MANUAL_ACK_REQUESTED);
 	}
 	
@@ -359,7 +359,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param registeredDelivery the Registered Delivery to examine
 	 * @return {@code true} if the Registered Delivery SME originated Acknowledgement bits indicates SME Manual/User Acknowledgment requested
 	 */
-	public static final boolean isSmeDeliveryAndManualAckRequested(byte registeredDelivery) {
+	public static boolean isSmeDeliveryAndManualAckRequested(byte registeredDelivery) {
 		return isSmeAck(registeredDelivery, SMPPConstant.REGDEL_SME_DELIVERY_MANUAL_ACK_REQUESTED);
 	}
 	
@@ -369,7 +369,7 @@ public class DeliverSm extends MessageRequest {
 	 * @param registeredDelivery the original Registered Delivery
 	 * @return the modified Registered Delivery
 	 */
-	public static final byte composeSmeDeliveryAndManualAckRequested(byte registeredDelivery) {
+	public static byte composeSmeDeliveryAndManualAckRequested(byte registeredDelivery) {
 		return composeSmeAck(registeredDelivery, SMPPConstant.REGDEL_SME_DELIVERY_MANUAL_ACK_REQUESTED);
 	}
 }
