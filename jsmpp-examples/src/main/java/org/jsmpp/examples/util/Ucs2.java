@@ -23,6 +23,9 @@ public class Ucs2 {
 
   /**
    * Verify is the java string consists of UCS-2 characters, i.e. in the Basic Multilingual Plane of Unicode
+   *
+   * @param s is the string to be tested
+   * @return boolean value if the parameter is UCS2 encodable
    */
   public static boolean isUcs2Encodable(String s) {
     for (int i = 0; i < s.length(); i++) {

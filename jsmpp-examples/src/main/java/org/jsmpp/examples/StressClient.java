@@ -13,25 +13,9 @@
  */
 package org.jsmpp.examples;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-
 import org.jsmpp.InvalidResponseException;
 import org.jsmpp.PDUException;
-import org.jsmpp.bean.BindType;
-import org.jsmpp.bean.DataCodings;
-import org.jsmpp.bean.ESMClass;
-import org.jsmpp.bean.InterfaceVersion;
-import org.jsmpp.bean.NumberingPlanIndicator;
-import org.jsmpp.bean.OptionalParameter;
-import org.jsmpp.bean.OptionalParameters;
-import org.jsmpp.bean.RegisteredDelivery;
-import org.jsmpp.bean.TypeOfNumber;
+import org.jsmpp.bean.*;
 import org.jsmpp.extra.NegativeResponseException;
 import org.jsmpp.extra.ResponseTimeoutException;
 import org.jsmpp.session.BindParameter;
@@ -41,10 +25,19 @@ import org.jsmpp.session.SubmitSmResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+
 /**
  * This stress client is an example of submit bulk messages asynchronously.
  *
- * <table border="1" summary="Properties table">
+ * <table border="1">
+ *     <caption>Properties table</caption>
  *     <tr><td><strong>Name</strong></td><td><strong>Description</strong></td><td><strong>Default value</strong></td></tr>
  *     <tr><td>jsmpp.client.host</td><td>Server host address</td><td>localhost</td></tr>
  *     <tr><td>jsmpp.client.port</td><td>Server port</td><td>8056</td></tr>

@@ -14,42 +14,23 @@
  */
 package org.jsmpp.examples;
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
-
 import org.jsmpp.PDUStringException;
 import org.jsmpp.SMPPConstant;
-import org.jsmpp.bean.BroadcastSm;
-import org.jsmpp.bean.CancelBroadcastSm;
-import org.jsmpp.bean.CancelSm;
-import org.jsmpp.bean.DataSm;
-import org.jsmpp.bean.OptionalParameter;
-import org.jsmpp.bean.QueryBroadcastSm;
-import org.jsmpp.bean.QuerySm;
-import org.jsmpp.bean.ReplaceSm;
-import org.jsmpp.bean.SubmitMulti;
-import org.jsmpp.session.SubmitMultiResult;
-import org.jsmpp.bean.SubmitSm;
-import org.jsmpp.bean.UnsuccessDelivery;
+import org.jsmpp.bean.*;
 import org.jsmpp.extra.ProcessRequestException;
-import org.jsmpp.session.BindRequest;
-import org.jsmpp.session.BroadcastSmResult;
-import org.jsmpp.session.DataSmResult;
-import org.jsmpp.session.QueryBroadcastSmResult;
-import org.jsmpp.session.QuerySmResult;
-import org.jsmpp.session.SMPPServerSession;
-import org.jsmpp.session.SMPPServerSessionListener;
-import org.jsmpp.session.ServerMessageReceiverListener;
-import org.jsmpp.session.Session;
-import org.jsmpp.session.SubmitSmResult;
+import org.jsmpp.session.*;
 import org.jsmpp.util.MessageIDGenerator;
 import org.jsmpp.util.RandomMessageIDGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
 /**
- * @author uudashr
+ * ReceiveSubmittedMessageExample
  *
+ * @author uudashr
  */
 public class ReceiveSubmittedMessageExample {
 

@@ -14,30 +14,25 @@
  */
 package org.jsmpp.examples;
 
-import java.io.IOException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.jsmpp.bean.BindType;
 import org.jsmpp.bean.DeliverSm;
 import org.jsmpp.bean.NumberingPlanIndicator;
 import org.jsmpp.bean.TypeOfNumber;
 import org.jsmpp.extra.ProcessRequestException;
 import org.jsmpp.extra.SessionState;
-import org.jsmpp.session.BindParameter;
-import org.jsmpp.session.OutbindRequest;
-import org.jsmpp.session.OutboundSMPPServerSessionListener;
-import org.jsmpp.session.OutboundServerMessageReceiverListener;
-import org.jsmpp.session.SMPPOutboundServerSession;
-import org.jsmpp.session.ServerResponseDeliveryAdapter;
-import org.jsmpp.session.Session;
-import org.jsmpp.session.SessionStateListener;
+import org.jsmpp.session.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
+ * SMPPOutboundServerSimulator
+ *
  * @author pmoerenhout
  */
 public class SMPPOutboundServerSimulator extends ServerResponseDeliveryAdapter

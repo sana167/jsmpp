@@ -14,18 +14,9 @@
  */
 package org.jsmpp.examples;
 
-import java.io.IOException;
-import java.util.Date;
-
 import org.jsmpp.InvalidResponseException;
 import org.jsmpp.PDUException;
-import org.jsmpp.bean.BindType;
-import org.jsmpp.bean.DataCodings;
-import org.jsmpp.bean.ESMClass;
-import org.jsmpp.bean.NumberingPlanIndicator;
-import org.jsmpp.bean.RegisteredDelivery;
-import org.jsmpp.bean.SMSCDeliveryReceipt;
-import org.jsmpp.bean.TypeOfNumber;
+import org.jsmpp.bean.*;
 import org.jsmpp.extra.NegativeResponseException;
 import org.jsmpp.extra.ResponseTimeoutException;
 import org.jsmpp.session.BindParameter;
@@ -36,7 +27,12 @@ import org.jsmpp.util.TimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.util.Date;
+
 /**
+ * An example for a simple submit registered
+ *
  * @author uudashr
  *
  */

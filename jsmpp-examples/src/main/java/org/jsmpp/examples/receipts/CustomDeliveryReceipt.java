@@ -14,6 +14,11 @@
  */
 package org.jsmpp.examples.receipts;
 
+import org.jsmpp.bean.DeliveryReceiptInterface;
+import org.jsmpp.util.InvalidDeliveryReceiptException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,12 +26,9 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jsmpp.bean.DeliveryReceiptInterface;
-import org.jsmpp.util.InvalidDeliveryReceiptException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
+ * Custom delivery report receipt
+ *
  * @author pmoerenhout
  */
 public class CustomDeliveryReceipt implements DeliveryReceiptInterface<CustomDeliveryReceiptState> {

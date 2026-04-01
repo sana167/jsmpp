@@ -14,43 +14,26 @@
  */
 package org.jsmpp.examples;
 
-import java.io.IOException;
-import java.util.Date;
-
 import org.jsmpp.InvalidResponseException;
 import org.jsmpp.PDUException;
-import org.jsmpp.bean.AlertNotification;
-import org.jsmpp.bean.Alphabet;
-import org.jsmpp.bean.BindType;
-import org.jsmpp.bean.DataSm;
-import org.jsmpp.bean.DeliverSm;
-import org.jsmpp.bean.DeliveryReceipt;
-import org.jsmpp.bean.ESMClass;
-import org.jsmpp.bean.GeneralDataCoding;
-import org.jsmpp.bean.MessageClass;
-import org.jsmpp.bean.MessageType;
-import org.jsmpp.bean.NumberingPlanIndicator;
-import org.jsmpp.bean.RegisteredDelivery;
-import org.jsmpp.bean.SMSCDeliveryReceipt;
-import org.jsmpp.bean.TypeOfNumber;
+import org.jsmpp.bean.*;
 import org.jsmpp.extra.NegativeResponseException;
 import org.jsmpp.extra.ProcessRequestException;
 import org.jsmpp.extra.ResponseTimeoutException;
-import org.jsmpp.session.BindParameter;
-import org.jsmpp.session.DataSmResult;
-import org.jsmpp.session.MessageReceiverListener;
-import org.jsmpp.session.SMPPSession;
-import org.jsmpp.session.Session;
-import org.jsmpp.session.SubmitSmResult;
+import org.jsmpp.session.*;
 import org.jsmpp.util.AbsoluteTimeFormatter;
 import org.jsmpp.util.InvalidDeliveryReceiptException;
 import org.jsmpp.util.TimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.util.Date;
+
 /**
+ * SimpleSubmitSimpleReceiveExample
+ *
  * @author terukizm
- * 
  */
 public class SimpleSubmitSimpleReceiveExample {
     private static final Logger log = LoggerFactory.getLogger(SimpleSubmitSimpleReceiveExample.class);

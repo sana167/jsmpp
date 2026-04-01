@@ -29,8 +29,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author uudashr
+ * MessageReceiverListenerImpl
  *
+ * @author uudashr
  */
 public class MessageReceiverListenerImpl implements MessageReceiverListener {
     private static final Logger LOGGER = LoggerFactory.getLogger(MessageReceiverListenerImpl.class);

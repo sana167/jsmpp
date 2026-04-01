@@ -14,25 +14,11 @@
  */
 package org.jsmpp.examples;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.jsmpp.InvalidResponseException;
 import org.jsmpp.PDUException;
 import org.jsmpp.PDUStringException;
 import org.jsmpp.SMPPConstant;
-import org.jsmpp.bean.DataCodings;
-import org.jsmpp.bean.DeliveryReceipt;
-import org.jsmpp.bean.ESMClass;
-import org.jsmpp.bean.GSMSpecificFeature;
-import org.jsmpp.bean.InterfaceVersion;
-import org.jsmpp.bean.MessageMode;
-import org.jsmpp.bean.MessageType;
-import org.jsmpp.bean.NumberingPlanIndicator;
-import org.jsmpp.bean.PriorityFlag;
-import org.jsmpp.bean.RegisteredDelivery;
-import org.jsmpp.bean.TypeOfNumber;
+import org.jsmpp.bean.*;
 import org.jsmpp.extra.NegativeResponseException;
 import org.jsmpp.extra.ResponseTimeoutException;
 import org.jsmpp.extra.SessionState;
@@ -47,7 +33,13 @@ import org.jsmpp.util.RandomDecimalMessageIDGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.util.Date;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
+ * OpenAndOutbindExample
+ *
  * @author pmoerenhout
  */
 public class OpenAndOutbindExample implements Runnable {

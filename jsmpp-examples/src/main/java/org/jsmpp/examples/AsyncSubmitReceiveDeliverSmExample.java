@@ -14,48 +14,27 @@
  */
 package org.jsmpp.examples;
 
+import org.jsmpp.InvalidResponseException;
+import org.jsmpp.PDUException;
+import org.jsmpp.bean.*;
+import org.jsmpp.extra.NegativeResponseException;
+import org.jsmpp.extra.ProcessRequestException;
+import org.jsmpp.extra.ResponseTimeoutException;
+import org.jsmpp.session.*;
+import org.jsmpp.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.jsmpp.InvalidResponseException;
-import org.jsmpp.PDUException;
-import org.jsmpp.bean.AlertNotification;
-import org.jsmpp.bean.BindType;
-import org.jsmpp.bean.DataCodings;
-import org.jsmpp.bean.DataSm;
-import org.jsmpp.bean.DeliverSm;
-import org.jsmpp.bean.DeliveryReceipt;
-import org.jsmpp.bean.ESMClass;
-import org.jsmpp.bean.MessageType;
-import org.jsmpp.bean.NumberingPlanIndicator;
-import org.jsmpp.bean.OptionalParameter;
-import org.jsmpp.bean.RegisteredDelivery;
-import org.jsmpp.bean.SMSCDeliveryReceipt;
-import org.jsmpp.bean.TypeOfNumber;
-import org.jsmpp.extra.NegativeResponseException;
-import org.jsmpp.extra.ProcessRequestException;
-import org.jsmpp.extra.ResponseTimeoutException;
-import org.jsmpp.session.BindParameter;
-import org.jsmpp.session.DataSmResult;
-import org.jsmpp.session.MessageReceiverListener;
-import org.jsmpp.session.SMPPSession;
-import org.jsmpp.session.Session;
-import org.jsmpp.session.SubmitSmResult;
-import org.jsmpp.util.AbsoluteTimeFormatter;
-import org.jsmpp.util.InvalidDeliveryReceiptException;
-import org.jsmpp.util.MessageIDGenerator;
-import org.jsmpp.util.MessageId;
-import org.jsmpp.util.RandomMessageIDGenerator;
-import org.jsmpp.util.TimeFormatter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
- * @author uudashr
+ * AsyncSubmitReceiveDeliverSmExample
  *
+ * @author uudashr
  */
 public class AsyncSubmitReceiveDeliverSmExample {
     private static final Logger log = LoggerFactory.getLogger(AsyncSubmitReceiveDeliverSmExample.class);

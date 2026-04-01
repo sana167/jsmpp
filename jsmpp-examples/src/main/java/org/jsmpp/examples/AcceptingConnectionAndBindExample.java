@@ -14,9 +14,6 @@
  */
 package org.jsmpp.examples;
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
-
 import org.jsmpp.PDUStringException;
 import org.jsmpp.SMPPConstant;
 import org.jsmpp.session.BindRequest;
@@ -25,9 +22,13 @@ import org.jsmpp.session.SMPPServerSessionListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
 /**
- * @author uudashr
+ * AcceptingConnectionAndBindExample
  *
+ * @author uudashr
  */
 public class AcceptingConnectionAndBindExample {
     private static final Logger log = LoggerFactory.getLogger(AcceptingConnectionAndBindExample.class);

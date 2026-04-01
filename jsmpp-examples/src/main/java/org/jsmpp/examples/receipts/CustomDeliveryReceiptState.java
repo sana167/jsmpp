@@ -15,11 +15,13 @@
 package org.jsmpp.examples.receipts;
 
 /**
- * @author pmoerenhout *
+ * Custom delivery receipt state
+ *
+ * @author pmoerenhout
  */
 public enum CustomDeliveryReceiptState {
 
-  /* the value could be use to store in database */
+  /* the value could be used to store in database */
   /**
    * ENROUTE
    */
